@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tape');
-const bumper = require('./');
+const kaes = require('./');
 
 test('testFunction', t => {
     const callback = makeTestFunction();
@@ -16,8 +16,8 @@ test('testFunction', t => {
         .then(result => t.equal(result.counter, 3));
 });
 
-test('bumpered testFunction should cache and return value', t => {
-    const callback = bumper(makeTestFunction());
+test('modified testFunction should cache and return value', t => {
+    const callback = kaes(makeTestFunction());
 
     t.plan(3);
 
@@ -29,8 +29,8 @@ test('bumpered testFunction should cache and return value', t => {
     }, 1);
 });
 
-test('bumpered testFunction should keep return value reference', t => {
-    const callback = bumper(makeTestFunction());
+test('modified testFunction should keep return value reference', t => {
+    const callback = kaes(makeTestFunction());
 
     t.plan(3);
 
@@ -52,8 +52,8 @@ test('bumpered testFunction should keep return value reference', t => {
     }, 1);
 });
 
-test('bumpered testFunction should not only cache for equal arguments', t => {
-    const callback = bumper(makeTestFunction());
+test('modified testFunction should not only cache for equal arguments', t => {
+    const callback = kaes(makeTestFunction());
 
     t.plan(10);
 
